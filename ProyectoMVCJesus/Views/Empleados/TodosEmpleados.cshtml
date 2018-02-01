@@ -1,0 +1,58 @@
+﻿@model List<ProyectoMVCJesus.Models.EMP>
+
+@{
+    ViewBag.Title = "TodosEmpleados";
+}
+
+<h2>TodosEmpleados</h2>
+<h1 style="color:blueviolet">@ViewBag.direccion</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.ActionLink("APELLIDO", "TodosEmpleados", "Empleados",
+              new
+              {
+                  orden = "apellido",
+                  direccion = ViewBag.Direccion,
+                  campo = "apellido"
+              }, null)
+
+        </th>
+        <th>
+
+            @Html.ActionLink("OFICIO", "TodosEmpleados", "Empleados",
+           new
+           {
+               orden = "oficio",
+               direccion = ViewBag.Direccion,
+               campo = "oficio"
+           }, null)
+        </th>
+        <th>
+            @Html.ActionLink("SALARIO", "TodosEmpleados", "Empleados",
+     new
+     {
+         orden = "salario",
+         direccion = ViewBag.Direccion,
+         campo = "salario"
+     }, null)
+
+        </th>
+    </tr>
+
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>
+                @emp.APELLIDO
+            </td>
+            <td>
+                @emp.OFICIO
+            </td>
+            <td>
+                @emp.SALARIO
+            </td>
+        </tr>
+    }
+
+</table>
